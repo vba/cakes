@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Cakes</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2>Cake as you go</h2>
+   <!-- <ion-list>
+        <ion-item *ngFor="let cake of cakes">
+            <ion-avatar item-left>
+                <ion-icon *ngIf="!isValidUrl(cake.imageUrl)" name="sad"></ion-icon>
+                <img *ngIf="isValidUrl(cake.imageUrl)" src="{{cake.imageUrl}}">
+            </ion-avatar>
+            <h2>{{cake.name}}</h2>
+            <p>{{cake.comment}}</p>
+        </ion-item>
+    </ion-list>-->
+
+    <ion-list>
+        <button ion-item *ngFor="let cake of cakes" (click)="onCakeSelected(cake)">
+            <ion-avatar item-left>
+                <ion-icon *ngIf="!isValidUrl(cake.imageUrl)" name="sad"></ion-icon>
+                <img *ngIf="isValidUrl(cake.imageUrl)" src="{{cake.imageUrl}}">
+            </ion-avatar>
+            <h2>{{cake.name}}</h2>
+            <p>{{cake.comment}}</p>
+        </button>
+    </ion-list>
+
+    <ion-fab right bottom (click)="addNewCake()">
+        <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+</ion-content>
